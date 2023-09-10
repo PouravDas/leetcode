@@ -1,4 +1,4 @@
-package com.leetcode.test2790.combinationSum4;
+package com.leetcode.test280.combinationSum4;
 
 class Solution {
   public int combinationSum4 (int[] nums, int target) {

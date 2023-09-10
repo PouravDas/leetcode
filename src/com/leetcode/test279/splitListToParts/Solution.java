@@ -1,4 +1,4 @@
-package com.leetcode.test2789.splitListToParts;
+package com.leetcode.test279.splitListToParts;
 
 class Solution {
   public ListNode[] splitListToParts(ListNode head, int k) {
