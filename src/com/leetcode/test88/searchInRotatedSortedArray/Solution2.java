@@ -15,7 +15,7 @@ public class Solution2 {
           r = mid - 1;
         }
       } else {
-        if(target >= nums[l] || nums[mid] <= nums[l]) {
+        if(target >= nums[l] || nums[mid] < nums[l]) {
           r = mid - 1;
         } else {
           l = mid + 1;
