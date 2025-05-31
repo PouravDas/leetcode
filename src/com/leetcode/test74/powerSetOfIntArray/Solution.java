@@ -23,4 +23,25 @@ class Solution {
       powerSet(powSet, newList, nums, i + 1);
     }
   }
+
+
+  Set<List<Integer>> ans = new HashSet<>();
+  public List<List<Integer>> subsetsWithDup(int[] nums) {
+    subset(nums, 0, new ArrayList<>());
+    return new ArrayList<>(ans);
+  }
+
+  void subset(int[] nums, int i, List<Integer> curr) {
+    if(i == nums.length) {
+      ArrayList<Integer> e = new ArrayList<>(curr);
+      Collections.sort(e);
+      ans.add(e);
+      return;
+    }
+
+    subset(nums, i + 1, curr);
+    curr.add(nums[i]);
+    subset(nums, i + 1, curr);
+    curr.remove(curr.size() - 1);
+  }
 }
