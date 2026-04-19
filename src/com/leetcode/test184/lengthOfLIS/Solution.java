@@ -2,6 +2,8 @@ package com.leetcode.test184.lengthOfLIS;
 
 //300. Longest Increasing Subsequence
 
+import java.util.Arrays;
+
 /**
  * DP problem
  * create an DP array that holds the longest increasing subsequence ending with that current number
@@ -25,5 +27,21 @@ class Solution {
       max = Math.max(d, max);
     }
     return max;
+  }
+
+
+  public int lengthOfLIS_2 (int[] nums) {
+    int[] dp = new int[nums.length];
+    for (int i = nums.length -1; i >= 0 ; i--) {
+
+      int max = 0;
+      for (int j = i + 1; j < nums.length; j++) {
+        if(nums[i] < nums[j]) {
+          max = Math.max(max, dp[j]);
+        }
+      }
+      dp[i] = max + 1;
+    }
+    return Arrays.stream(dp).max().getAsInt();
   }
 }

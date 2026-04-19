@@ -66,4 +66,34 @@ class Solution {
     s.flatten(n1);
     System.out.println(n1);
   }
+
+
+
+  public Node flatten2(Node head) {
+    traverse(head);
+    return head;
+  }
+
+  Node traverse(Node head) {
+    if(head.next == null && head.child == null) return head;
+    if(head.child != null) {
+      Node child = head.child;
+      Node next = head.next;
+      head.child = null;
+      head.next = child;
+      child.prev = head;
+
+      Node result = traverse(child);
+      result.next = next;
+      if(next != null) {
+      next.prev = result;
+      head = next;
+      } else {
+        head = result;
+      }
+    } else {
+      head = head.next;
+    }
+    return traverse(head);
+  }
 }
